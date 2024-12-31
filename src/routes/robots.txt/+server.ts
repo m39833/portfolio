@@ -10,9 +10,9 @@ Sitemap: ${baseUrl}/sitemap.xml
 `.trim();
 
 export async function GET() {
-	return new Response(file, {
-		headers: {
-			"Content-Type": "text/plain"
-		}
-	});
+    return new Response(file, {
+        headers: {
+            "Content-Type": "text/plain"
+        }
+    });
 }
