@@ -47,7 +47,7 @@
 		for (let i = 0; i < text.length; i++) {
 			content += text.charAt(i);
 
-			await new Promise((res) => setTimeout(res, 25));
+			await new Promise((res) => setTimeout(res, 20));
 		}
 	}
 
@@ -68,7 +68,7 @@
 		(async () => {
 			for (const command of commands) {
 				await executeCommand(command);
-				await new Promise((res) => setTimeout(res, 250));
+				await new Promise((res) => setTimeout(res, 175));
 			}
 
 			running = false;
