@@ -8,7 +8,7 @@
     "bracketSameLine": true,
     "overrides": [
         {
-            "files": "*.svelte",
+            "files": ["*.html", "*.svelte"],
             "options": {
                 "parser": "svelte",
                 "tabWidth": 2
