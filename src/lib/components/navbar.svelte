@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { type Icon, Mail } from "lucide-svelte";
-	import { PUBLIC_EMAIL } from "$env/static/public";
+	import { env } from "$env/dynamic/public";
 
 	const socials: Social[] = [
 		{
@@ -19,11 +19,12 @@
 		{
 			name: "LinkedIn",
 			href: "https://www.linkedin.com/in/matthew-ponciano-209b94259",
+
 			icon: "/icons/linkedin.svg"
 		},
 		{
 			name: "Email",
-			href: `mailto:${PUBLIC_EMAIL}`,
+			href: `mailto:${env.PUBLIC_EMAIL}`,
 			icon: Mail
 		}
 	];
