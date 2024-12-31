@@ -49,7 +49,7 @@
 </script>
 
 <section
-	class="mt-0 flex flex-col gap-6 p-2 sm:p-4 lg:mt-32 lg:flex-row lg:gap-12 lg:px-8 xl:gap-16 xl:px-24 2xl:mt-36 2xl:px-32">
+	class="mx-auto mt-0 flex w-full max-w-[102rem] flex-col gap-6 p-2 sm:p-4 lg:mt-32 lg:flex-row lg:gap-12 lg:px-8 xl:gap-16 xl:px-24 2xl:px-32">
 	<div class="absolute inset-0 w-full overflow-clip" aria-hidden="true">
 		<GridPattern
 			{squares}
@@ -72,7 +72,7 @@
 		</AnimatedGradientPill>
 
 		<div class="relative mb-4 space-y-0.5 md:mb-6">
-			<h2 class="text-2xl text-xl font-medium tracking-normal">Hey there 👋, I&apos;m</h2>
+			<h2 class="text-xl font-medium tracking-normal">Hey there 👋, I&apos;m</h2>
 			<BlurInText
 				tag="h1"
 				text="Matthew Ponciano"
