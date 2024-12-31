@@ -23,9 +23,9 @@
 </script>
 
 <svelte:element this={tag} class={[className, "inline-block align-middle"]}>
-	{#each words as word}
+	{#each words as word, i}
 		<span class="relative inline-block">
-			{#each word.split("") as char, i (i)}
+			{#each word.split("") as char}
 				<span class="part inline-block -translate-x-full translate-y-1/3 opacity-0 blur-md">
 					{#if char !== " "}
 						{char}
@@ -34,6 +34,11 @@
 					{/if}
 				</span>
 			{/each}
-		</span>&nbsp;
+		</span>
+		<span>
+			{#if i !== words.length - 1}
+				&nbsp;
+			{/if}
+		</span>
 	{/each}
 </svelte:element>
