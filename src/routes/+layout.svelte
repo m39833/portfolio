@@ -8,7 +8,7 @@
   import "../app.css";
 
   import { dev } from "$app/environment";
-  import { injectAnalytics } from "@vercel/analytics/sveltekit";
+  // import { inject as injectAnalytics } from "@vercel/analytics";
   import Navbar from "$lib/components/navbar.svelte";
   import { getBaseUrl } from "$lib/utils";
   import favicon from "$lib/assets/favicon.png";
@@ -17,7 +17,7 @@
 
   const baseUrl = getBaseUrl();
 
-  injectAnalytics({ mode: dev ? "development" : "production" });
+  // injectAnalytics({ mode: dev ? "development" : "production" });
 </script>
 
 <svelte:head>

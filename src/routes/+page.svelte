@@ -9,6 +9,8 @@
   import BlurScaleIn from "$lib/components/blur-scale-in.svelte";
   import GridPattern from "$lib/components/grid-pattern.svelte";
   import { Hover3D } from "$lib/components/hover-3d";
+  import PageWidth from "$lib/components/page-width.svelte";
+  import { onMount } from "svelte";
 
   // function getRandomNumber(min: number, max: number) {
   // 	return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -50,14 +52,14 @@
 
 <section
   class="mx-auto mt-0 flex w-full max-w-[102rem] flex-col gap-6 p-2 sm:p-4 lg:mt-32 lg:flex-row lg:gap-12 lg:px-8 xl:gap-16 xl:px-24 2xl:px-32">
-  <div class="absolute inset-0 w-full overflow-clip" aria-hidden="true">
+  <div class="absolute inset-0 w-full -z-10 overflow-clip" aria-hidden="true">
     <GridPattern
       {squares}
       class="inset-0 skew-y-6 scale-110 [mask-image:radial-gradient(ellipse_70%_50%,white,transparent)]" />
     <Spotlight class="-top-24 left-0 md:-top-12 " fill="white" />
   </div>
   <div class="z-10 lg:mt-8 xl:mt-12">
-    <AnimatedGradientPill class="z-10 mb-4 md:mb-6">
+    <div class="flex sm:justify-normal justify-center"><AnimatedGradientPill class="z-10 mb-4 md:mb-6">
       <span class="relative mr-2 flex h-3 w-3">
         <span
           class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
@@ -69,9 +71,9 @@
         Available for Projects
       </span>
       <ChevronRight class="h-4 w-4" />
-    </AnimatedGradientPill>
+    </AnimatedGradientPill></div>
 
-    <div class="relative mb-4 space-y-0.5 md:mb-6">
+    <div class="relative mb-4 space-y-0.5 md:mb-6 flex sm:items-start items-center flex-col">
       <h2 class="text-xl font-medium tracking-normal">Hey there 👋, I&apos;m</h2>
       <BlurInText
         tag="h1"
@@ -82,14 +84,14 @@
 
     <div class="mb-6 md:mb-10">
       <p
-        class="w-full max-w-md text-balance text-sm text-muted-foreground sm:max-w-xl sm:text-wrap sm:text-base lg:text-lg">
+        class="w-full text-balance text-sm text-muted-foreground sm:text-left text-center sm:max-w-xl sm:text-wrap sm:text-base lg:text-lg">
         I'm a passionate <strong>software engineer</strong> with 4 years of experience crafting elegant,
         efficient, and user-friendly web applications. My journey thus far includes the creation of intuitive
         frontend experiences and robust backend systems.
       </p>
     </div>
 
-    <div class="flex gap-4 max-md:mb-6">
+    <div class="flex sm:justify-start justify-center gap-4 max-md:mb-6">
       <Button size="xl" variant="outline">Projects</Button>
       <!-- <Button size="xl" variant="outline">Resume</Button> -->
       <Button size="xl" variant="rainbow">Contact</Button>
@@ -138,4 +140,8 @@
   </div>
 </section>
 
-<!-- <PageWidth>{null}</PageWidth> -->
+<PageWidth>
+  <div class="flex justify-center my-12 lg:my-24">
+    <h2 class="text-xl font-semibold tracking-wide text-muted-foreground">🚧 Work In Progress 🚧</h2>
+  </div>
+</PageWidth>

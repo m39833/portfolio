@@ -29,16 +29,9 @@
         <span class="part inline-block -translate-x-full translate-y-1/3 opacity-0 blur-md">
           {#if char !== " "}
             {char}
-          {:else}
-            &nbsp;
           {/if}
         </span>
       {/each}
-    </span>
-    <span>
-      {#if i !== words.length - 1}
-        &nbsp;
-      {/if}
-    </span>
+    </span>{#if i !== words.length - 1}&nbsp;{/if}
   {/each}
 </svelte:element>
