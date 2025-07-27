@@ -1,0 +1,27 @@
+---
+id: duolingo-bot
+---
+
+<script>
+    // import Button from "$lib/components/ui/button/button.svelte"
+</script>
+
+A CLI tool to quickly gain resources and boost account stats in Duolingo. Features commands for xp, gems, streak, and a profile monitor. This project was built as a way to further my understanding of the Rust programming language while familiarizing myself with its surrounding ecosystem.
+
+## Features
+
+- An easy-to-use interface with detailed descriptions of commands and associated options
+- XP farming with controllable number of instances
+- Gem farming with controllable number of instances
+- Extend streak by a specified amount
+- Monitor an account's resources and statistics while running other commands
+
+## Notable Crates
+
+- `tokio` -- Asynchronous runtime, running multiple tasks in parallel
+- `reqwest` -- For making HTTP requests
+- `serde` -- Serialization and deserialization of data
+- `snafu` -- Modular error handling
+- `tracing` -- Message logging
+- `clap` -- Command-line argument parsing
+

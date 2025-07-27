@@ -1,3 +1,4 @@
+import { PROJECTS } from "$lib/config/projects";
 import { getBaseUrl } from "$lib/utils";
 
 type SitemapFile = {
@@ -10,11 +11,17 @@ type SitemapFile = {
     // };
 };
 
+const BLANK_LINES = /\n\s*\n/gm;
+
 const baseUrl = getBaseUrl();
 
 const pages: SitemapFile[] = [
-    { url: baseUrl, priority: 1, changeFrequency: "weekly" }
-    // { url: baseUrl, priority: 1, changeFrequency: "weekly" }
+    { url: baseUrl, priority: 1 },
+    ...PROJECTS.map((project) => ({
+        url: `${baseUrl}/projects/${project.id}`,
+        // changeFrequency: "monthly",
+        priority: 0.8
+    }))
 ];
 
 const sitemap = `
@@ -35,7 +42,7 @@ const sitemap = `
     ${page.changeFrequency ? `<changefreq>${page.changeFrequency}</changefreq>` : ""}
     ${page.priority ? `<priority>${page.priority}</priority>` : ""}
   </url>
-`.replace(/\n\s*\n/gm, "");
+`.replace(BLANK_LINES, "");
   })}
 </urlset>
 `.trim();

@@ -81,3 +81,7 @@
         @apply bg-background text-foreground;
     }
 }
+
+pre.shiki.tokyo-night {
+    @apply !bg-[#101017]/80 ring-2 ring-gray-800 ring-opacity-80 !backdrop-blur-md !backdrop-filter;
+}

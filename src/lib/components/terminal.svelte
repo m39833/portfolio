@@ -1,13 +1,14 @@
-<script lang="ts" module>
+<script lang="ts">
+  import { tick, type Snippet } from "svelte";
+
   type Command = {
-    name: string;
-    output: string | Snippet;
+    command: string;
+    result: string | Snippet;
   };
 
   const PROMPT = "~ m \n❯ ";
-  //									output: "React Next.js Svelte SvelteKit Node.js TailwindCSS"
 
-  const DEVICONS: (string | { name: string; path: string })[] = [
+  const DEVICONS_RAW: (string | { name: string; path: string })[] = [
     "typescript",
     "javascript",
     "python",
@@ -25,12 +26,18 @@
     "docker",
     "figma",
     "vscode",
-    "neovim"
+    "neovim",
+    "linux"
   ];
-</script>
 
-<script lang="ts">
-  import { tick, type Snippet } from "svelte";
+  const DEVICONS = new Map<string, string>();
+  for (const devicon of DEVICONS_RAW) {
+    if (typeof devicon === "string") {
+      DEVICONS.set(devicon, `/devicons/${devicon}.svg`);
+    } else {
+      DEVICONS.set(devicon.name, `/devicons/${devicon.path}`);
+    }
+  }
 
   let {
     commands,
@@ -41,20 +48,22 @@
   let content = $state(PROMPT);
   let running = false;
 
+  let parts = $derived(content.split(/(\bskills\b|\bls\b|\bm\b|❯|~|\s)/));
+
   let container: HTMLDivElement;
 
   async function typeText(text: string) {
     for (let i = 0; i < text.length; i++) {
       content += text.charAt(i);
 
-      await new Promise((res) => setTimeout(res, 20));
+      await new Promise((res) => setTimeout(res, 15));
     }
   }
 
   async function executeCommand(command: Command) {
-    await typeText(command.name);
+    await typeText(command.command);
     content += "\n";
-    content += command.output;
+    content += command.result;
     content += "\n\n" + PROMPT;
 
     await tick();
@@ -76,6 +85,12 @@
   });
 </script>
 
+<svelte:head>
+  {#each DEVICONS.values() as href}
+    <link rel="preload" as="image" {href} />
+  {/each}
+</svelte:head>
+
 <div
   bind:this={container}
   class={["overflow-y-auto rounded-lg bg-terminal p-4 font-mono", className]}>
@@ -88,31 +103,28 @@
   <!-- </div> -->
   <div class="space-y-1">
     <code class="whitespace-pre-wrap">
-      {#each content.split(/(\bskills\b|\bls\b|\bm\b|❯|~|\s)/) as part}
+      {#each parts as part}
         {#if part === "skills" || part === "ls"}
           <span class="text-lime-400">{part}</span>
         {:else if part === "m"}
           <span class="text-muted-foreground">{part}</span>
         {:else if part === "❯"}
           <span class="text-purple-300">{part}</span>
-        {:else if part === "~" || /--\w+/.test(part)}
+        {:else if part === "~"}
+          <span class="text-cyan-200">{part}</span>
+        {:else if /--\w+/.test(part)}
           <span class="text-blue-300">{part}</span>
         {:else if part === "\n"}
           <br />
         {:else}
-          {@const maybeImage = DEVICONS.find((v) => {
-            return typeof v === "string" ? v === part.toLowerCase() : v.name === part.toLowerCase();
-          })}
-          {@const path = maybeImage
-            ? `/devicons/${typeof maybeImage === "string" ? `${maybeImage}.svg` : maybeImage.path}`
-            : null}
+          {@const path = DEVICONS.get(part.toLowerCase())}
 
           {#if path}
             <span class="whitespace-nowrap">
               <img
                 src={path}
                 class="mr-1.5 inline-block size-4 select-none"
-                alt="{part} icon"
+                alt="{part.toLowerCase()} icon"
                 fetchpriority="high" /><span>{part}</span></span>
           {:else}
             <span class="text-foreground">{part}</span>

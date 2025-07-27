@@ -1,6 +1,7 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import tailwindcssTypography from "@tailwindcss/typography";
 
 const config: Config = {
     darkMode: ["class"],
@@ -49,7 +50,7 @@ const config: Config = {
                     DEFAULT: "hsl(var(--card) / <alpha-value>)",
                     foreground: "hsl(var(--card-foreground) / <alpha-value>)"
                 },
-                terminal: "#1a1b26",
+                terminal: "#0d0d13",
                 sidebar: {
                     DEFAULT: "hsl(var(--sidebar-background))",
                     foreground: "hsl(var(--sidebar-foreground))",
@@ -75,7 +76,9 @@ const config: Config = {
             fontFamily: {
                 sans: [...fontFamily.sans],
                 geist: ["geist"],
-                mono: ["geist mono"]
+                jetbrains: ["jetbrains"],
+                // mono: ["geist mono"]
+                mono: ["jetbrains mono"]
             },
             keyframes: {
                 "accordion-down": {
@@ -132,7 +135,7 @@ const config: Config = {
             }
         }
     },
-    plugins: [tailwindcssAnimate]
+    plugins: [tailwindcssAnimate, tailwindcssTypography]
 };
 
 export default config;
