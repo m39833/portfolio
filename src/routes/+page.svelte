@@ -151,9 +151,9 @@
         Projects
       </span>
     </AnimatedGradientPill>
-    <h2 class="mb-2 text-4xl font-bold">Check out my latest work</h2>
+    <h2 class="mb-2 text-center text-4xl font-bold">Check out my latest work</h2>
   </div>
-  <div class="grid w-full grid-cols-5 gap-4">
+  <div class="grid w-full gap-4 sm:grid-cols-2 md:grid-cols-5">
     <ProjectCard project={PROJECTS[0]} span="lg" priority />
     <ProjectCard project={PROJECTS[1]} span="sm" priority />
   </div>

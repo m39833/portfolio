@@ -28,14 +28,14 @@
 <Card
   class={[
     "group flex scale-100 flex-col overflow-clip transition-all hover:scale-[1.025] hover:shadow-lg hover:shadow-gray-400/15",
-    span === "sm" ? "col-span-2" : "col-span-3"
+    span === "sm" ? "md:col-span-2" : "md:col-span-3"
   ]}>
   <CardHeader class="h-48 overflow-hidden bg-stone-600 p-0">
     {#if media && media.type === "image"}
       <img
         src={media.src}
         alt={name}
-        class="scale-[1.025] object-cover transition-transform
+        class="h-full origin-top scale-[1.025] object-cover object-top transition-transform
         group-hover:scale-100"
         fetchpriority={priority ? "high" : "auto"} />
     {:else if media && media.type === "video"}
