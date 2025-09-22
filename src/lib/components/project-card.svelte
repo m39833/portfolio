@@ -60,19 +60,31 @@
           {@const [type, href] = entry as [ProjectLinkType, string]}
 
           {#if type === "website"}
-            <a {href} class={buttonVariants({ size: "sm" })}>
+            <a
+              {href}
+              class={buttonVariants({ size: "sm" })}
+              target="_blank"
+              rel="noopener noreferrer">
               <Globe />
               Website
             </a>
           {/if}
           {#if type === "demo"}
-            <a {href} class={buttonVariants({ size: "sm" })}>
+            <a
+              {href}
+              class={buttonVariants({ size: "sm" })}
+              target="_blank"
+              rel="noopener noreferrer">
               <Video />
               Demo
             </a>
           {/if}
           {#if type === "source"}
-            <a {href} class={buttonVariants({ size: "sm" })}>
+            <a
+              {href}
+              class={buttonVariants({ size: "sm" })}
+              target="_blank"
+              rel="noopener noreferrer">
               <Github />
               Source
             </a>

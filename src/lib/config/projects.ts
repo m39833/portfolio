@@ -29,7 +29,9 @@ export const PROJECTS: Project[] = [
             type: "image",
             src: "/project-media/duolingo-bot.png"
         },
-        links: {},
+        links: {
+            demo: "https://youtu.be/jyKVXQ2eFOE?si=WQNG59PZDZJ5BnHj"
+        },
         tags: ["Rust"]
     },
     {
