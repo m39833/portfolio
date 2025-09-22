@@ -25,3 +25,4 @@ A CLI tool to quickly gain resources and boost account stats in Duolingo. Featur
 - `tracing` -- Message logging
 - `clap` -- Command-line argument parsing
 
+To prevent abuse of the platform, the bot will remain closed sourced until the methods are patched.

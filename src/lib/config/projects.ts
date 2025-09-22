@@ -47,5 +47,19 @@ export const PROJECTS: Project[] = [
             source: "https://github.com/PowerOfAPoint/sachacks2025-intlstudents"
         },
         tags: ["Next.js", "PostgreSQL", "Docker", "Hackathon"]
+    },
+    {
+        id: "animehauz",
+        name: "Animehauz",
+        description: "Ecommerce platform featuring anime products and collectibles.",
+        hasInfoPage: false,
+        media: {
+            type: "image",
+            src: "/project-media/animehauz.png"
+        },
+        links: {
+            website: "https://animehauz.com"
+        },
+        tags: ["Next.js", "PostgreSQL", "PayloadCMS", "Stripe"]
     }
 ];

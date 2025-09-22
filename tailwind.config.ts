@@ -98,6 +98,14 @@ const config: Config = {
                         "background-position": "-150% center"
                     }
                 },
+                meteor: {
+                    "0%": { transform: "rotate(120deg) translateX(0)", opacity: "1" },
+                    "70%": { opacity: "1" },
+                    "100%": {
+                        transform: "rotate(120deg) translateX(700px)",
+                        opacity: "0"
+                    }
+                },
                 rainbow: {
                     "0%": { "background-position": "0%" },
                     "100%": { "background-position": "200%" }
@@ -129,6 +137,7 @@ const config: Config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "caret-blink": "caret-blink 1.25s ease-out infinite",
                 gradient: "gradient 6s linear infinite",
+                meteor: "meteor 5s linear infinite",
                 rainbow: "rainbow var(--speed, 2s) infinite linear",
                 "spin-slow": "spin 8s linear infinite",
                 spotlight: "spotlight 2s ease .75s 1 forwards"

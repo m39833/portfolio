@@ -4,7 +4,7 @@
 
   const TITLE = "Matthew Ponciano • Software Engineer";
   const DESCRIPTION =
-    "Experienced software engineer specializing in full-stack development, cloud architecture, and scalable solutions. Explore my portfolio showcasing innovative projects in React, Node.js, and Python, demonstrating expertise in modern web technologies and clean code practices.";
+    "Software engineer based in Los Angeles with experience in full-stack development. My portfolio includes projects built with React, Node.js, and Rust, where I focus on building reliable, well-structured applications and writing clean, maintainable code.";
   const baseUrl = getBaseUrl();
 </script>
 
@@ -12,7 +12,7 @@
   import AnimatedGradientPill from "$lib/components/animated-gradient-pill.svelte";
   import { ChevronRight } from "lucide-svelte";
   import BlurInText from "$lib/components/blur-in-text.svelte";
-  import { Button } from "$lib/components/ui/button";
+  import { Button, buttonVariants } from "$lib/components/ui/button";
   import Terminal from "$lib/components/terminal.svelte";
   import ShineBorder from "$lib/components/shine-border.svelte";
   import Spotlight from "$lib/components/spotlight.svelte";
@@ -21,8 +21,10 @@
   import { Hover3D } from "$lib/components/hover-3d";
   import PageWidth from "$lib/components/page-width.svelte";
   import ProjectCard from "$lib/components/project-card.svelte";
+  import CurrentlyWorkingOn from "$lib/components/currently-working-on.svelte";
   import { PROJECTS } from "$lib/config/projects";
   import { SQUARES } from "$lib/config/grid";
+  import { env } from "$env/dynamic/public";
 </script>
 
 <svelte:head>
@@ -58,7 +60,7 @@
     <Spotlight class="-top-24 left-0 md:-top-12 " fill="white" />
   </div>
   <div class="z-10 lg:mt-8 xl:mt-12">
-    <div class="flex justify-center sm:justify-normal">
+    <a href="mailto:{env.PUBLIC_EMAIL}" class="mb-4 md:mb-6">
       <AnimatedGradientPill class="z-10 mb-4 md:mb-6">
         <span class="relative mr-2 flex h-3 w-3">
           <span
@@ -72,30 +74,38 @@
         </span>
         <ChevronRight class="h-4 w-4" />
       </AnimatedGradientPill>
-    </div>
+    </a>
 
     <div class="relative mb-4 flex flex-col items-center space-y-0.5 sm:items-start md:mb-6">
       <h2 class="text-xl font-medium tracking-normal">Hey there 👋, I&apos;m</h2>
       <BlurInText
         tag="h1"
         text="Matthew Ponciano"
-        class="text-4xl font-bold tracking-wide sm:text-5xl md:text-6xl 2xl:text-7xl" />
+        class="text-4xl font-bold tracking-[0.015em] sm:text-5xl md:text-6xl 2xl:text-7xl" />
       <h2 class="text-xl font-medium tracking-wide sm:text-2xl">and I like building things 🚀</h2>
     </div>
 
     <div class="mb-6 md:mb-10">
       <p
         class="w-full text-balance text-center text-sm text-muted-foreground sm:max-w-xl sm:text-wrap sm:text-left sm:text-base lg:text-lg">
-        I'm a passionate <strong>software engineer</strong> with 4 years of experience crafting elegant,
-        efficient, and user-friendly web applications. My journey thus far includes the creation of intuitive
-        frontend experiences and robust backend systems.
+        I’m a <strong>software engineer</strong> based in Los Angeles building reliable and easy-to-use
+        web applications. My work has ranged from developing smooth, accessible frontends to implementing
+        solid and maintainable backend systems.
       </p>
     </div>
 
     <div class="flex justify-center gap-4 max-md:mb-6 sm:justify-start">
-      <Button size="xl" variant="outline">Projects</Button>
+      <Button size="xl" variant="outline" href="#projects">Projects</Button>
       <!-- <Button size="xl" variant="outline">Resume</Button> -->
-      <Button size="xl" variant="rainbow">Contact</Button>
+      <!-- <Button size="xl" variant="rainbow">Contact</Button> -->
+      <a
+        href="mailto:{env.PUBLIC_EMAIL}"
+        class={buttonVariants({
+          size: "xl",
+          variant: "rainbow"
+        })}>
+        Contact
+      </a>
     </div>
   </div>
 
@@ -144,7 +154,7 @@
 <div class="pointer-events-none h-24" aria-hidden="true"></div>
 
 <PageWidth class="flex flex-col items-center px-4">
-  <div class="mb-6 flex flex-col items-center space-y-2">
+  <div id="projects" class="mb-6 flex scroll-mt-24 flex-col items-center space-y-2">
     <AnimatedGradientPill class="px-6">
       <span
         class="mr-1 inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">
@@ -156,6 +166,17 @@
   <div class="grid w-full gap-4 sm:grid-cols-2 md:grid-cols-5">
     <ProjectCard project={PROJECTS[0]} span="lg" priority />
     <ProjectCard project={PROJECTS[1]} span="sm" priority />
+    <CurrentlyWorkingOn
+      name="Google Maps Timeline Desktop Viewer"
+      description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024."
+      span="sm"
+      class="max-sm:hidden" />
+    <ProjectCard project={PROJECTS[2]} span="lg" />
+    <CurrentlyWorkingOn
+      name="Google Maps Timeline Desktop Viewer"
+      description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024."
+      span="sm"
+      class="sm:hidden" />
   </div>
 </PageWidth>
 
