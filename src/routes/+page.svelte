@@ -21,7 +21,6 @@
   import { Hover3D } from "$lib/components/hover-3d";
   import PageWidth from "$lib/components/page-width.svelte";
   import ProjectCard from "$lib/components/project-card.svelte";
-  import CurrentlyWorkingOn from "$lib/components/currently-working-on.svelte";
   import { PROJECTS } from "$lib/config/projects";
   import { SQUARES } from "$lib/config/grid";
   import { env } from "$env/dynamic/public";
@@ -166,17 +165,18 @@
   <div class="grid w-full gap-4 sm:grid-cols-2 md:grid-cols-5">
     <ProjectCard project={PROJECTS[0]} span="lg" priority />
     <ProjectCard project={PROJECTS[1]} span="sm" priority />
-    <CurrentlyWorkingOn
-      name="Google Maps Timeline Desktop Viewer"
-      description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024."
-      span="sm"
-      class="max-sm:hidden" />
-    <ProjectCard project={PROJECTS[2]} span="lg" />
-    <CurrentlyWorkingOn
-      name="Google Maps Timeline Desktop Viewer"
-      description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024."
-      span="sm"
-      class="sm:hidden" />
+    <ProjectCard project={PROJECTS[2]} span="sm" />
+    <!-- <CurrentlyWorkingOn -->
+    <!--   name="Google Maps Timeline Desktop Viewer" -->
+    <!--   description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024." -->
+    <!--   span="sm" -->
+    <!--   class="max-sm:hidden" /> -->
+    <ProjectCard project={PROJECTS[3]} span="lg" />
+    <!-- <CurrentlyWorkingOn -->
+    <!--   name="Google Maps Timeline Desktop Viewer" -->
+    <!--   description="A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024." -->
+    <!--   span="sm" -->
+    <!--   class="sm:hidden" /> -->
   </div>
 </PageWidth>
 

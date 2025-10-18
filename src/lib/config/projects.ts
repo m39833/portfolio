@@ -35,6 +35,21 @@ export const PROJECTS: Project[] = [
         tags: ["Rust"]
     },
     {
+        id: "google-maps-timeline-desktop-viewer",
+        name: "Google Maps Timeline Viewer",
+        description:
+            "A desktop viewer for Google Maps Timeline data, as the official one was discontinued in 2024.",
+        hasInfoPage: false,
+        media: {
+            type: "image",
+            src: "/project-media/maps-timeline-viewer.png"
+        },
+        links: {
+            source: "https://github.com/m39833/maps-timeline-viewer"
+        },
+        tags: ["SvelteKit", "Google Cloud", "MapLibreGL"]
+    },
+    {
         id: "flock",
         name: "Flock",
         description:
