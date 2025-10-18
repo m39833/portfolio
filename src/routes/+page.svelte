@@ -4,7 +4,7 @@
 
   const TITLE = "Matthew Ponciano • Software Engineer";
   const DESCRIPTION =
-    "Software engineer based in Los Angeles with experience in full-stack development. My portfolio includes projects built with React, Node.js, and Rust, where I focus on building reliable, well-structured applications and writing clean, maintainable code.";
+    "Software engineer based in Los Angeles who enjoys building and programming digital experiences. Discover my work using tools like Typescript, Next.js, and Rust. View my projects, experience, and get in touch.";
   const baseUrl = getBaseUrl();
 </script>
 
